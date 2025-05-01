@@ -4,9 +4,10 @@ import random
 winner = {'Rock': ['Lizard', 'Scissors'], 'Paper': ['Rock', 'Spock'], 'Scissors': ['Paper', 'Lizard'], 'Lizard': ['Spock', 'Paper'], 'Spock': ['Scissors', 'Rock']}
 options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
 
-print('Welcome to Rock, Paper, Scissors, Lizard, Spock!\n First to 3 points wins!\n To start the game please type in one of the following choices Rock, Paper, Scissors, Lizard, or Spock')
-
-
+print('\nWelcome to Rock, Paper, Scissors, Lizard, Spock!\nFirst to 3 points wins!')
+print('To play you will pick one of the 5 options (Rock, Paper, Scissors, Lizard, Spock)\nThe computer will then randomly select an option\nA winner will then be determined as in the original Rock Paper Scissors except each option now defeats and loses to two other options')
+print('To start the game please type in one of the following choices Rock, Paper, Scissors, Lizard, or Spock')
+print('Make sure that you spell your choice correctly and start with a capital letter.')
 
 class Player():
     def __init__(self):
@@ -43,16 +44,22 @@ class Game():
             print("It's a Draw.")
 
     def game_loop(self):
+        counter = 1
         while self.player1.wins < 3 and self.player2.wins < 3:
+            print(f'Round {counter}:')
             self.player1.get_choice()
             self.player2.choice = random.choice(options)
+            print(f'Com chose: {self.player2.choice}')
             self.winners()
+            print(f'Current score: User: {self.player1.wins} Com: {self.player2.wins}\n----------\n')
+            counter +=1
 
         if self.player1.wins == 3:
             print('User is the Winner!')
         else:
             print('Com is the Winner!')
-        print(f'Final score:\n User: {self.player1.wins} Com: {self.player2.wins}')
+        print(f'Final score: User: {self.player1.wins} Com: {self.player2.wins}')
+        print('Thanks for playing!')
             
         
 
