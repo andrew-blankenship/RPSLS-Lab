@@ -13,7 +13,7 @@ class Player():
     def __init__(self):
         self.choice = 'none'
         self.wins = 0
-        self.losses = 0
+        
 
     def get_choice(self):
         print('Please make your selection:')
